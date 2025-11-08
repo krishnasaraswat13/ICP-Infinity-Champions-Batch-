@@ -1,0 +1,24 @@
+class Solution {
+    public boolean searchMatrix(int[][] mat, int x) {
+         int rows=mat.length;
+        int cols=mat[0].length;
+        int l=0;
+        int h=rows*cols-1;
+        while(l<=h){
+            int mid=l+(h-l)/2;
+            int row=mid/cols;
+            int col=mid%cols;
+            if(mat[row][col]==x){
+                return true;
+            }
+            else if(mat[row][col]>x){
+                h=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+            
+        }
+        return false;
+    }
+}
